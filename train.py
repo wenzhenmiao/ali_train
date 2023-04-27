@@ -7,30 +7,7 @@ import random
 import subprocess
 import sys
 
-# 获取当前目录
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# package_path = os.path.join(current_dir, 'wandb', 'wandb-0.15.0-py3-none-any.whl')
-# pip.main(['install', package_path])
-
-package_path = os.path.join(current_dir, 'wandb', '*.whl')
-wandb_path = os.path.join(current_dir, 'wandb')
-# pip.main(['install', '--no-index', '--no-deps', package_path])
-
-# cmd_str = "pip install --no-index --no-deps " + package_path
-# subprocess.run(cmd_str, shell=True)
-
-cmd1 = 'export PATH="$HOME/.local/bin:$PATH"'
-subprocess.run(cmd1, shell=True)
-
-for f in os.listdir(wandb_path):
-    if f.endswith('whl'):
-        wheel_path = wandb_path + '/' + str(f)
-        print(wheel_path)
-        cmd_str = "pip install --no-index --no-deps --user " + wheel_path
-        subprocess.run(cmd_str, shell=True)
-    # wheel_path = os.path.join(wandb_path)
-    # cmd_str = "pip install --no-index --no-deps " + wheel_path
-    # subprocess.run(cmd_str, shell=True)
+pip.install('wandb')
 
 import wandb
 
